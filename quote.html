@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Random Quote Machine</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/stylesheets/css_Sanford.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:200" rel="stylesheet">
+
+    <style>
+
+      a, a:hover, a:focus { color: white; }
+
+      button {
+        height: 50px;
+        background-color: #1A237E;
+        font-family: Lobster, cursive;
+        text-shadow: 2px 2px 3px #000;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 2px 2px 10px #000;
+      }
+
+      button:hover {opacity: 0.7; }
+      button:focus{ outline: 0;}
+
+
+      .box {
+        width: 600px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 6%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: white;
+        box-shadow: 3px 3px 15px;
+        -webkit-animation: box 2s;
+      }
+
+      @-webkit-keyframes box {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        75% {opacity: 0;}
+      }
+
+
+
+      .twitter {
+        position: absolute;
+        width: 50px;
+        height: auto;
+        margin-left: -8%;
+      }
+
+      .new-quote {
+        position: absolute;
+        margin-left: -2.5%;
+        height: 50px;
+        width: auto;
+      }
+
+      body {
+        background-color: #302f2f;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: "Barlow";
+        color: white;
+        font-weight: 1000;
+        font-size: 30px;
+        word-spacing: 5px;
+      }
+
+      h1 .letter {
+        display: inline-block;
+        line-height: 1em;
+      }
+
+      .said {
+        position: relative;
+        font-family: Barlow;
+        font-weight: 1000;
+        height: auto;
+        font-size: 20px;
+        -webkit-animation: box 1s;
+      }
+
+      .by {
+        position: relative;
+        height: auto;
+        padding-bottom: 10px;
+        text-align: right;
+        font-size: 15px;
+        color: #111111;
+        font-family: 'Merienda One',cursive;
+        -webkit-animation: box 1s;
+      }
+
+      .quotepic{
+        position: absolute;
+      }
+
+      .quotepic img {
+        height: 60px;
+        width: auto;
+        margin-left: -50px;
+        margin-top: -50px;
+      }
+
+      .footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 2px;
+        text-align: center;
+        background-color: #232323;
+        padding-top: 10px;
+      }
+
+      a:hover {outline: none !important;}
+
+      .footerimg {
+        height: 13px;
+        width: auto;
+        margin-left: 7px;
+        margin-right: 7px;
+        margin-bottom: 5px;
+      }
+
+      .footerimg:hover {opacity: 0.5;}
+
+      .footertext {
+        letter-spacing: 2px;
+        font-size: 10px;
+        font-family: 'Exo';
+        color: white;
+      }
+
+      @media only screen and (max-width: 1080px) {
+        .box {
+          margin-top: 20%;
+          width: 90%;
+          left: 5%;
+        }
+        .twitter {
+          margin-left: 30%;
+        }
+        .new-quote {
+          margin-left: 15%;
+        }
+        .quotepic img {
+          margin-left: -40px;
+          margin-top: -40px;
+        }
+      }
+
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1>RANDOM QUOTE MACHINE</h1>
+
+    <div class="box" id="lel">
+
+      <div class="quotepic"><img src="https://github.com/halfling9/halfling9.github.io/blob/master/quote/quote3.png?raw=true" /></div>
+
+      <div class="quote">
+        <p id="said" class="said">Welcome to my quote generating webpage! Click on the button below!</p>
+        <p id="by" class="by">-Aruna</p>
+      </div>
+
+      <div class="container">
+        <a id="twit" target="_blank" onclick="postit()" title="Tweet Me!"><img id="twit" class="twitter" src="https://github.com/halfling9/halfling9.github.io/blob/master/quote/twitter.png?raw=true"></img></button></a>
+
+        <img src="https://github.com/halfling9/halfling9.github.io/blob/master/quote/nub.png?raw=true" class="new-quote" title="Generate a new quote" onclick="clickMe()" />
+    </div>
+
+    <div class="footer">
+      <div>
+        <a href="https://linkedin.com/in/apmwar" target="_blank"><img src="https://github.com/halfling9/halfling9.github.io/blob/master/icons/lightlinkedin.png?raw=true" class="footerimg" /></a>
+
+        <a href="https://github.com/halfling9" target="_blank"><img src="https://github.com/halfling9/halfling9.github.io/blob/master/icons/lightgit.png?raw=true" class="footerimg"/></a>
+
+        <a href="https://halfling9.github.io" target="_blank"><img src="https://github.com/halfling9/halfling9.github.io/blob/master/icons/lighthome.png?raw=true" class="footerimg"/></a>
+      </div>
+      <div class="footertext">© 2018 Aruna | All Rights Reserved</div>
+    </div>
+
+    <script>
+
+      var myColors = ["#8b45a8", "#818b96","#633974", "#1AAF92", "#2E86C1", "#6795b5", "#c97b72", "#154360", "#0E6655", "#626567", "#1B2631", "#641E16", "#5B2C6F", "#b58c87 ","#4cad91 ", "#DD597D", "#e2a1a1", "#8DC7BB", "#7777d1","#FF8A8A","#B96F6F", "#B05F3C", "#6CA870", "#20c2db", "#bb90e5", "#800080", "#d1d192", "#FFD34F", "#4A9586", "#1F88A7", "#2C3E50", "#922B21"];
+
+      var myFooterColors = ["#6b3582", "#656e77", "#492359", "#138C74", "#2777ad", "#577e99", "#9e615a", "#113851", "#0c5b4c", "#525456", "#263544", "#4c1610", "#3e1e44", "#a5807c", "#429b81", "#ba4a68", "#bf8787", "#709e94", "#6161a8", "#dd7a7a", "#824e4e", "#87482d", "#57875b", "#1ba0b5","#9c78bf", "#4f004f", "#cccc8e", "#e0b945", "#3a7267", "#106982", "#1B2530", "#72211a"];
+
+      var randomize = 0;
+      var quote = "";
+      var author = "";
+      var box = document.getElementById("lel");
+
+      $('h1').each(function(){
+        $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+      });
+
+      anime.timeline()
+      .add({
+        targets: 'h1 .letter',
+        scale: [3,1],
+        opacity: [0,1],
+        translateZ: 0,
+        easing: "easeOutExpo",
+        duration: 900,
+        delay: function(el, i) {
+          return 70*i;
+        }
+      });
+
+
+      function clickMe(){
+
+        $(document).ready(function(){
+          $.getJSON("https://random-quote-generator.herokuapp.com/api/quotes/random", function(result){
+            quote=result["quote"];
+            author="-" + result["author"];
+            $("#said").html(quote);
+            $("#by").html(author);
+          });
+        });
+
+        repeatanimate();
+
+        randomize = Math.floor(Math.random()*myColors.length);
+        $('body').css("background-color", myColors[randomize]);
+        $('button').css("background-color", myColors[randomize]);
+        $('#by').css("color", myColors[randomize]);
+        $('.footer').css("background-color", myFooterColors[randomize]);
+      }
+
+      function repeatanimate(){
+        //destroy and create hack
+        document.body.removeChild(box);
+        document.body.appendChild(box);
+        box.style.animation = "box";
+      }
+
+
+      function postit(){
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(quote + " " + author));
+      }
+
+    </script>
+
+  </body>
+
+</html>
