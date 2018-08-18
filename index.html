@@ -6,13 +6,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
 		<!--fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -368,10 +362,10 @@
 
 			function display() {
 				var string = 'url("portfolio/' + flag + '.png")';
-				var url = "<a target='_blank' href='https://apmwar.github.io/"+link[flag]+"'><div class='row'><button style='text-align: center; color: white; margin-left: 20px; width: 100px;'>LINK</button></div></a>";
+				var url = "<a target='_blank' href='https://apmwar.github.io/"+link[flag]+"'><div class='row'><button style='text-align: center; color: white;margin-top: -10px; margin-left: 20px; width: 100px;'>LINK</button></div></a>";
 				$(".poo").css("background-image", string);
 				$(".desc").html("");
-				$(".desc").append(desc[flag] + "<br><br>" + url);
+				$(".desc").append("<h5>" + desc[flag] + "</h5><br><br>" + url);
 
 			}
 
