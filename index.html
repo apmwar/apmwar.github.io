@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Aruna's Portfolio</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+		<!--fonts-->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	</head>
+
+	<style>
+
+		body {
+			overflow-y: scroll;
+			overflow-x: hidden;
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			color: white;
+			font-family: 'Source Sans Pro';
+			background: black;
+			background-image: url("portfolio/bg.jpg");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+
+		.background {
+			background-color: #000;
+			width: 100vw;
+			height: 100vh;
+			min-height: 600px;
+			background: black;
+			opacity: 0.5;
+			position: absolute;
+		}
+
+		.box {
+			position: absolute;
+			width: 100vw;
+			height: 100vh;
+			color: white;
+			padding-top: 20vh;
+		}
+
+		.line1 {
+			position: absolute;
+			width: 50vw;
+			height: 2px;
+			background: #DDD;
+			margin-left: 25vw;
+			margin-bottom: 50px;
+		}
+
+		.line2 {
+			position: absolute;
+			width: 50vw;
+			height: 2px;
+			background: #DDD;
+			margin-left: 25vw;
+			margin-top: 60px;
+		}
+
+
+		#aruna {
+			position: absolute;
+			font-size: 30px;
+			font-family: 'Times New Roman';
+			font-weight: 500;
+			font-style: italic;
+			width: 100vw;
+			height: auto;
+		}
+
+		.row button {
+			margin-top: 30px;
+			background-color: transparent;
+			font-size: 13px;
+			letter-spacing: 2px;
+			padding: 12px;
+			width: 150px;
+			transition: all 0.51s ease-in-out;
+		}
+
+		button:hover { transform: scale(1.1); }
+
+		h1 { font-size: 40px; }
+
+		.socialmedia {
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.footer {
+			margin-top: 50px;
+			width: 100vw;
+			position: absolute;
+			text-align: center;
+			letter-spacing: 2px;
+			color: #888;
+			font-size: 10px;
+		}
+		.footerimg { position: relative; width: 20px; height: 20px; margin-left: 20px; margin-right: 20px;}
+
+		@media screen and (max-width: 400px) {
+
+			.box { padding-top: 10vh; }
+			h1 { font-size: 30px; }
+			#aruna { font-size: 22px; }
+
+			.row button { margin-top: 20px; }
+		}
+
+		@media screen and (max-width: 720px) {
+
+			.box { padding-top: 20vh; }
+		}
+
+	</style>
+
+	<body>
+
+		<div class="background"></div>
+		<div class="box">
+			<div class="line1"></div>
+			<h1 style="letter-spacing: 5px; text-align: center"><b>ARUNA PARAMESWARAN</b></h1>
+			<div id="aruna" style="text-align: center"></div>
+
+			<div class="line2"></div>
+			<br><br><br><br>
+
+			<div class="row" style="text-align: center">
+				<div class="col-xm-6"><button>ABOUT</button></div>
+				<div class="col-xm-6"><button>PROJECTS</button></div>
+			</div>
+
+			<div class="socialmedia">
+				<a href="https://linkedin.com/in/apmwar" target="_blank">
+				<img src="https://github.com/apmwar/apmwar.github.io/blob/master/icons/lightlinkedin.png?raw=true" class="footerimg" /></a>
+			<a href="https://github.com/apmwar" target="_blank"><img src="https://github.com/apmwar/apmwar.github.io/blob/master/icons/lightgit.png?raw=true" class="footerimg"/></a></div>
+
+			<div class="footer">© ARUNA PARAMESWARAN</div>
+
+
+		<script>
+			var i = 0, j = 0;
+			var list = ["Website Developer", "Student", "Writer", "Programmer", "UI/UX Designer"];
+			var speed = 100;
+			var direction = "f";
+
+			$(document).ready(function(){
+				setTimeout(function(){ typeWriter(); }, 1500);
+			});
+
+			function typeWriter() {
+				if(j == list.length){
+					j = 0;
+					i = 0;
+					direction = "f";
+					document.getElementById("aruna").innerHTML = '';
+				}
+
+				else if(i == -1){
+					i = 0;
+					j++;
+					direction = "f";
+					document.getElementById("aruna").innerHTML = "";
+				}
+
+				if(j == list.length){
+					j = 0;
+				}
+
+				if (i < list[j].length && direction == "f") {
+
+					document.getElementById("aruna").innerHTML = list[j].slice(0, i) + "|";
+					i++;
+					setTimeout(typeWriter, speed);
+				}
+
+				else if(i == list[j].length){
+					document.getElementById("aruna").innerHTML = list[j] + "|";
+					direction = "r";
+					i--;
+					setTimeout(typeWriter, 2000);
+				}
+				else if(direction == "r"){
+					document.getElementById("aruna").innerHTML = list[j].slice(0, i) + "|";
+					i--;
+					setTimeout(typeWriter, speed - 50);
+				}
+			}
+
+
+		</script>
+
+	</body>
+</html>
