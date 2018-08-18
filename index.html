@@ -21,29 +21,29 @@
 	<style>
 
 		body {
-			overflow-y: scroll;
+			overflow-y: hidden;
 			overflow-x: hidden;
 			width: 100vw;
 			height: 100vh;
 			position: absolute;
 			color: white;
-			font-family: 'Source Sans Pro';
-			background: black;
+			background-color: #000;
 			background-image: url("portfolio/bg.jpg");
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
+			font-family: 'Source Sans Pro';
+
 		}
 
 		.background {
-			background-color: #000;
 			width: 100vw;
 			height: 100vh;
 			min-height: 600px;
+			position: absolute;
 			background: black;
 			opacity: 0.5;
-			position: absolute;
 		}
 
 		.box {
@@ -52,6 +52,7 @@
 			height: 100vh;
 			color: white;
 			padding-top: 20vh;
+			visibility: visible;
 		}
 
 		.line1 {
@@ -102,6 +103,91 @@
 			margin-top: 30px;
 		}
 
+		.content {
+			position: absolute;
+			background: #222;
+			width: 50vw;
+			height: 10vh;
+			max-height: auto;
+			left: 0;
+			top: 0;
+			margin-left: 25vw;
+			margin-top: 10vh;
+			z-index: 2;
+			visibility: hidden;
+			color: #AAA;
+			padding: 20px;
+			overflow-x: hidden;
+			overflow-y: scroll;
+		}
+
+		.content h3 {
+			position: relative;
+			letter-spacing: 2px;
+			padding-bottom: 15px;
+			width: 150px;
+			color: white;
+			margin-bottom: 30px;
+			border-bottom: 2px solid white;
+		}
+
+		.hey {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: transparent;
+			font-size: 25px;
+			box-shadow: none;
+			outline: none;
+			border: none;
+			width: 40px;
+			font-family: sans-serif;
+			height: 40px;
+			border-radius: 50%;
+			transition: 0.2s all ease-out;
+		}
+
+		.hey:hover, .next:hover, .prev:hover { transform: scale(1.5);}
+
+		.next, .prev {
+			position: absolute;
+			font-size: 40px;
+			font-family: sans-serif;
+			background: transparent;
+			outline: none;
+			border: none;
+			color: white;
+			margin-top: 105px;
+			z-index: 3;
+		}
+
+		.prev { left: 0; }
+
+		.next { right: 0; }
+
+		.prev:hover, .next:hover { background: black }
+
+		.content .desc {
+			position: relative;
+			width: 100%;
+			height: auto;
+			margin-top: 50px;
+		}
+
+		.poo {
+			position: relative;
+			width: 500px;
+			height: 250px;
+			background: white;
+			background-image: url("portfolio/6.png");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment:local;
+			background-size: cover;
+			left: 50%;
+			margin-left: -250px;
+		}
+
 		.footer {
 			margin-top: 50px;
 			width: 100vw;
@@ -118,13 +204,18 @@
 			.box { padding-top: 10vh; }
 			h1 { font-size: 30px; }
 			#aruna { font-size: 22px; }
-
 			.row button { margin-top: 20px; }
+			.content { min-width: 90vw; margin-left: 5vw; }
+			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
+			.next, .prev { top: 43px; }
 		}
 
 		@media screen and (max-width: 720px) {
 
 			.box { padding-top: 20vh; }
+			.content { min-width: 90vw; margin-left: 5vw; }
+			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
+			.next, .prev { top: 43px; }
 		}
 
 	</style>
@@ -132,6 +223,7 @@
 	<body>
 
 		<div class="background"></div>
+
 		<div class="box">
 			<div class="line1"></div>
 			<h1 style="letter-spacing: 5px; text-align: center"><b>ARUNA PARAMESWARAN</b></h1>
@@ -141,16 +233,37 @@
 			<br><br><br><br>
 
 			<div class="row" style="text-align: center">
-				<div class="col-xm-6"><button>ABOUT</button></div>
-				<div class="col-xm-6"><button>PROJECTS</button></div>
+				<div class="col-xm-6"><button onclick="displayAbout()">ABOUT ME</button></div>
+				<div class="col-xm-6"><button onclick="displayProjects()">PROJECTS</button></div>
 			</div>
 
 			<div class="socialmedia">
 				<a href="https://linkedin.com/in/apmwar" target="_blank">
 				<img src="https://github.com/apmwar/apmwar.github.io/blob/master/icons/lightlinkedin.png?raw=true" class="footerimg" /></a>
-			<a href="https://github.com/apmwar" target="_blank"><img src="https://github.com/apmwar/apmwar.github.io/blob/master/icons/lightgit.png?raw=true" class="footerimg"/></a></div>
+				<a href="https://github.com/apmwar" target="_blank">
+				<img src="https://github.com/apmwar/apmwar.github.io/blob/master/icons/lightgit.png?raw=true" class="footerimg"/></a></div>
 
 			<div class="footer">© ARUNA PARAMESWARAN</div>
+		</div>
+
+		<div id="abt" class="content">
+			<button class="hey" onclick="collapse()">x</button>
+			<h3>ABOUT ME</h3>
+			<h5>Hello there! My name is Aruna blah blah blah</h5>
+		</div>
+
+		<div id="proj" class="content">
+
+
+			<h3>PROJECTS</h3>
+			<button class="next" onclick="nextpic()">></button>
+			<button class="prev" onclick="prepic()"><</button>
+			<button class="hey" onclick="collapse()">x</button>
+
+			<div class="poo"></div>
+			<div class="desc"></div>
+
+		</div>
 
 
 		<script>
@@ -159,6 +272,19 @@
 			var speed = 100;
 			var direction = "f";
 
+			var flag = 0;
+			var url = "<a href='https://apmwar.github.io'>link here</a>";
+			var desc = ["Presenting ... the Simon Game! But now in an interactive webpage that allows you to operate the game at ease. Simon is a memory game where you have to repeat the pattern played out to you on the board. Have fun testing your memory skills!",
+			"A dynamic web app that uses APIXU's API to display the weather information from the user's current location. Also allows user to search for a particular location and derive information about it.",
+			"Tic Tac Toe is one of the most popular, yet simplest of games that can be played either alone or against a computer! In this project, I designed my own version including AI algorithms to increase difficulty of single player mode.",
+	 		"This web page helps to access the popular streaming site Twitch's API and hence display relevant information regarding a particular streamer, and whether he is online or offline. In case he is online, the user can get the URL to go view the stream. The user can also add streamers of their choice.",
+			"A web page that connects to an external API and displays different quotes from various people alongside an interactive, dynamic environment. Also allows user to tweet out the quote.",
+			"A simple web page that functions as a basic calculator with intuitive, responsive design.",
+			"This web page accesses MediWiki's API and hence displays relevant articles to the user based on his query. It also has the option to display a random article.",
+			"A simple yet elegant web page that allows you to focus on your work in peace. Users can choose the length of the pomodoro as well as the break. The window alerts you when the allotted time is up, as well as keeps a track of your progress.",
+			"A tribute page to one of the most historically prominent people in the field of Computer Science."];
+
+			var link = ["simon", "weather", "tictactoe", "twitch", "quote", "calculator", "wiki","pomodoro","gracehopper"];
 			$(document).ready(function(){
 				setTimeout(function(){ typeWriter(); }, 1500);
 			});
@@ -202,6 +328,52 @@
 				}
 			}
 
+			function displayAbout() {
+				$(".box").css("visibility", "hidden");
+				$(".background").animate({opacity: "0.3"}, "slow");
+				$("#abt").css("visibility", "visible");
+				$("#abt").animate({height: "90vh"});
+			}
+
+
+			function displayProjects() {
+				flag = 0;
+				$(".box").css("visibility", "hidden");
+				$(".background").animate({opacity: "0.3"}, "slow");
+				$("#proj").css("visibility", "visible");
+				$("#proj").animate({height: "90vh"});
+				display();
+			}
+
+			function collapse() {
+				$(".box").css("visibility", "visible");
+				$("#abt").css("visibility", "hidden");
+				$("#proj").css("visibility", "hidden");
+				$("#abt").css("height", "10vh");
+				$("#proj").css("height", "10vh");
+				$(".background").animate({opacity: "0.5"}, "slow");
+			}
+
+			function nextpic() {
+				if(flag == 8) { flag = 0; }
+				else {flag++;}
+				display();
+			}
+
+			function prepic() {
+				if(flag > 0) { flag--; }
+				else { flag = 8; }
+				display();
+			}
+
+			function display() {
+				var string = 'url("portfolio/' + flag + '.png")';
+				var url = "<a target='_blank' href='https://apmwar.github.io/"+link[flag]+"'><div class='row'><button style='text-align: center; color: white; margin-left: 20px; width: 100px;'>LINK</button></div></a>";
+				$(".poo").css("background-image", string);
+				$(".desc").html("");
+				$(".desc").append(desc[flag] + "<br><br>" + url);
+
+			}
 
 		</script>
 
