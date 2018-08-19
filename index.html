@@ -36,27 +36,6 @@
 			font-family: 'Source Sans Pro';
 		}
 
-		.bg {
-				overflow-y: hidden;
-				overflow-x: hidden !important;
-				width: 100vw;
-				height: 100vh;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: -1;
-				color: white;
-				background-color: #000;
-				background-image: url("portfolio/bg.jpg");
-				background-position: center center;
-				background-repeat: no-repeat;
-				max-height: 150vh;
-				max-width: 100vw;
-				background-attachment: fixed !important;
-				background-size: cover;
-				filter: blur(0px);
-			}
-
 		.box {
 			position: absolute;
 			top: 0;
@@ -228,7 +207,7 @@
 			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
-			
+
 		}
 
 		@media screen and (max-width: 720px) {
@@ -244,7 +223,6 @@
 	</style>
 
 	<body>
-		<div class="bg"></div>
 		<div class="box">
 			<div class="line1"></div>
 			<h1 style="letter-spacing: 5px; text-align: center"><b>ARUNA PARAMESWARAN</b></h1>
@@ -357,8 +335,7 @@
 				$(".box").css("visibility", "hidden");
 				$("#abt").css("visibility", "visible");
 				$("body").css("overflow-y", "scroll");
-
-				$(".bg").css("filter", "blur(2px)");
+				$("body").css("background-image", "url('portfolio/bgblur.jpg')");
 				$("#abt").animate({opacity: "1"}, "slow");
 			}
 
@@ -368,6 +345,7 @@
 				$(".box").css("visibility", "hidden");
 				$("#proj").css("visibility", "visible");
 				$("body").css("overflow-y", "scroll");
+				$("body").css("background-image", "url('portfolio/bgblur.jpg')");
 				$("#proj").animate({opacity: "1"}, "slow");
 				display();
 			}
@@ -376,6 +354,7 @@
 				$(".box").css("visibility", "visible");
 				$("#abt").css("visibility", "hidden");
 				$("#proj").css("visibility", "hidden");
+				$("body").css("background-image", "url('portfolio/bg.jpg')");
 				$("#abt").css("opacity", "0");
 				$("#proj").css("opacity", "0");
 				$("body").css("overflow-y", "hidden");
