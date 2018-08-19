@@ -113,7 +113,7 @@
 			color: #AAA;
 			padding: 20px;
 			overflow-x: hidden;
-			overflow-y: scroll;
+			overflow-y: hidden;
 		}
 
 		.content h3 {
@@ -200,17 +200,19 @@
 			h1 { font-size: 30px; }
 			#aruna { font-size: 22px; }
 			.row button { margin-top: 20px; }
-			.content { min-width: 90vw; margin-left: 5vw; }
+			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
+			body { background-image: url("portfolio/bgmobi.jpg"); }
 		}
 
 		@media screen and (max-width: 720px) {
 
 			.box { padding-top: 20vh; }
-			.content { min-width: 90vw; margin-left: 5vw; }
+			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
+			body { background-image: url("portfolio/bgmobi.jpg"); }
 		}
 
 	</style>
