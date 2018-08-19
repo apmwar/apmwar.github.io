@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="shortcut icon" type="image/png" href="favicon.png"/>
 		<!--fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -14,14 +15,15 @@
 
 	<style>
 
-		body {
-			overflow-y: hidden !important;
+	body {
+			overflow-y: hidden;
 			overflow-x: hidden !important;
-			width: 100%;
-			height: 100%;
+			width: 100vw;
+			height: 100vh;
 			position: absolute;
 			top: 0;
 			left: 0;
+			z-index: -2;
 			color: white;
 			background-color: #000;
 			background-image: url("portfolio/bg.jpg");
@@ -32,11 +34,34 @@
 			background-attachment: fixed !important;
 			background-size: cover;
 			font-family: 'Source Sans Pro';
-
 		}
+
+		.bg {
+				overflow-y: hidden;
+				overflow-x: hidden !important;
+				width: 100vw;
+				height: 100vh;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				color: white;
+				background-color: #000;
+				background-image: url("portfolio/bg.jpg");
+				background-position: center center;
+				background-repeat: no-repeat;
+				max-height: 150vh;
+				max-width: 100vw;
+				background-attachment: fixed !important;
+				background-size: cover;
+				filter: blur(0px);
+			}
 
 		.box {
 			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
 			width: 100vw;
 			height: 100vh;
 			color: white;
@@ -96,20 +121,21 @@
 			position: absolute;
 			background: #222;
 			width: 50vw;
-			height: 10vh;
-			max-height: auto;
+			min-height: 80vh;
 			left: 0;
 			top: 0;
 			margin-left: 25vw;
 			margin-top: 10vh;
 			z-index: 2;
 			visibility: hidden;
+			opacity: 0;
 			color: #AAA;
 			padding: 20px;
-			overflow-x: hidden !important;
-			overflow-y: hidden !important;
+			padding-bottom:40px;
 		}
 
+		#abt {max-height: auto; margin-bottom: 20vh}
+		#projgall {max-height: 120vh;}
 		.content h3 {
 			position: relative;
 			letter-spacing: 2px;
@@ -160,6 +186,7 @@
 			position: relative;
 			width: 100%;
 			height: auto;
+
 			margin-top: 50px;
 		}
 
@@ -175,6 +202,10 @@
 			background-size: cover;
 			left: 50%;
 			margin-left: -250px;
+		}
+
+		h5 {
+			font-size: 16px !important;
 		}
 
 		.footer {
@@ -197,12 +228,7 @@
 			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
-			body {
-				background-image: url("portfolio/bgmobi.jpeg");
-
-					overflow-y: hidden !important;
-					overflow-x: hidden !important;
-			}
+			
 		}
 
 		@media screen and (max-width: 720px) {
@@ -212,18 +238,13 @@
 			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
-			body {
-				background-image: url("portfolio/bgmobi.jpeg");
 
-					overflow-y: hidden !important;
-					overflow-x: hidden !important;
-			}
 		}
 
 	</style>
 
 	<body>
-
+		<div class="bg"></div>
 		<div class="box">
 			<div class="line1"></div>
 			<h1 style="letter-spacing: 5px; text-align: center"><b>ARUNA PARAMESWARAN</b></h1>
@@ -246,16 +267,19 @@
 			<div class="footer">© ARUNA PARAMESWARAN</div>
 		</div>
 
-		<div id="abt" class="content">
+		<div id="abt" class="content" style="">
 			<button class="hey" onclick="collapse()">x</button>
 			<h3>ABOUT ME</h3>
 			<img src="portfolio/me.jpg" class="poo" />
-			<h5>Hello there! My name is Aruna. <br><br>I am a full on computer geek.</h5>
+			<h5><br>Hello there! My name is Aruna. I'm a computer science undergrad student. <br><br>
+				Full disclosure: I am a complete geek.zzhs possible. At the moment, I'm working on learning Android Development and Python.
+			 	<br><br>Some of the tools and technologies I am proficient at are: <i>C, C++, JAVA, MATLAB, JavaScript</i><br><br>
+				In the future I hope to be I try to expand my skill set as much as possible. At the moment, I'm working on learning Android Development and Python.
+			 	<br><br>Some of the tools and technologies I am proficient at are: <i>C, C++, JAVA, MATLAB, JavaScript</i><br><br>
+				In the future I hope to be ..</h5>
 		</div>
 
 		<div id="proj" class="content">
-
-
 			<h3>PROJECTS</h3>
 			<button class="next" onclick="nextpic()">></button>
 			<button class="prev" onclick="prepic()"><</button>
@@ -332,7 +356,10 @@
 			function displayAbout() {
 				$(".box").css("visibility", "hidden");
 				$("#abt").css("visibility", "visible");
-				$("#abt").animate({height: "90vh"});
+				$("body").css("overflow-y", "scroll");
+
+				$(".bg").css("filter", "blur(2px)");
+				$("#abt").animate({opacity: "1"}, "slow");
 			}
 
 
@@ -340,7 +367,8 @@
 				flag = 0;
 				$(".box").css("visibility", "hidden");
 				$("#proj").css("visibility", "visible");
-				$("#proj").animate({height: "90vh"});
+				$("body").css("overflow-y", "scroll");
+				$("#proj").animate({opacity: "1"}, "slow");
 				display();
 			}
 
@@ -348,8 +376,10 @@
 				$(".box").css("visibility", "visible");
 				$("#abt").css("visibility", "hidden");
 				$("#proj").css("visibility", "hidden");
-				$("#abt").css("height", "10vh");
-				$("#proj").css("height", "10vh");
+				$("#abt").css("opacity", "0");
+				$("#proj").css("opacity", "0");
+				$("body").css("overflow-y", "hidden");
+				$("body").css("height", "100vh");
 			}
 
 			function nextpic() {
