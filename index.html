@@ -114,7 +114,7 @@
 			visibility: hidden;
 			color: #AAA;
 			padding: 20px;
-			overflow-x: hidden;
+			overflow-x: hidden !important;
 			overflow-y: hidden;
 		}
 
@@ -205,7 +205,12 @@
 			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
-			body { background-image: url("portfolio/bgmobi.jpg"); height: 100vh;  background-size: contain;}
+			body {
+				background-image: url("portfolio/bgmobi.jpg");
+				height: 100vh;
+				background-size: contain;
+				overflow-x:hidden !important;
+			}
 		}
 
 		@media screen and (max-width: 720px) {
@@ -214,7 +219,12 @@
 			.content { min-width: 90vw; margin-left: 5vw; overflow-y: scroll; }
 			.poo { width: 250px; height: 125px; left: 50%; margin-left: -125px;}
 			.next, .prev { top: 43px; }
-			body { background-image: url("portfolio/bgmobi.jpg"); height: 100vh; background-size: contain; }
+			body {
+				background-image: url("portfolio/bgmobi.jpg");
+				height: 100vh;
+				background-size: contain;
+				overflow-x:hidden !important;
+			}
 		}
 
 	</style>
