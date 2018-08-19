@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+		<link rel="shortcut icon" type="image/png" href="favicon.png"/>
 		<!--fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -249,12 +249,24 @@
 			<button class="hey" onclick="collapse()">x</button>
 			<h3>ABOUT ME</h3>
 			<img src="portfolio/me.jpg" class="poo" />
-			<h5><br>Hello there! My name is Aruna. I'm a computer science undergrad student. <br><br>
-				Full disclosure: I am a complete geek.zzhs possible. At the moment, I'm working on learning Android Development and Python.
-			 	<br><br>Some of the tools and technologies I am proficient at are: <i>C, C++, JAVA, MATLAB, JavaScript</i><br><br>
-				In the future I hope to be I try to expand my skill set as much as possible. At the moment, I'm working on learning Android Development and Python.
-			 	<br><br>Some of the tools and technologies I am proficient at are: <i>C, C++, JAVA, MATLAB, JavaScript</i><br><br>
-				In the future I hope to be ..</h5>
+			<h2 style="color:white"><b>Hello! I'm Aruna.</b></h2>
+			<h5>I'm currently in University where my major is Computer Science and Engineering. I'm a total computer geek and I'm obsessed with all things tech.<br><br>
+			I'm highly proficient in <b>Web Development, Responsive Web Design and UI/UX. </b>
+			I have a keen eye for design and relentlessly pursue creative ventures.<br><br>
+			Additionally, I am also a versatile programmer. Some of the tools and technologies I constantly work with are:
+				<i><ul><br>
+					<li>C/C++</li><br>
+					<li>Android Development & JAVA</li><br>
+					<li>JavaScript</li><br>
+					<li>Python</li><br>
+					<li>MATLAB</li><br>
+					<li>Algorithm Designing & Data Structures</li><br>
+				</ul></i>
+			I offer versatility across a diverse skill set to any project I work on. I embrace opportunities to expand my horizons and venture beyond my comfort zone.
+			Each project I take up on is determined not only by what I can contribute, but largely on what I can take away from the experience. <br><br>
+			Currently, I am seeking internships to gain real-world exposure. I'm also open to working on projects.<br><br>
+			<big style="color: white">Please contact me through LinkedIn if you would like to get in touch.</big>
+		</h5>
 		</div>
 
 		<div id="proj" class="content">
@@ -290,6 +302,7 @@
 			var link = ["simon", "weather", "tictactoe", "twitch", "quote", "calculator", "wiki","pomodoro","gracehopper"];
 			$(document).ready(function(){
 				setTimeout(function(){ typeWriter(); }, 1500);
+				window.scrollTo(0, 0);
 			});
 
 			function typeWriter() {
@@ -335,8 +348,10 @@
 				$(".box").css("visibility", "hidden");
 				$("#abt").css("visibility", "visible");
 				$("body").css("overflow-y", "scroll");
-				$("body").css("background-image", "url('portfolio/bgblur.jpg')");
-				$("#abt").animate({opacity: "1"}, "slow");
+				$("body").fadeIn("slow", function() {
+					$("body").css("background-image", "url('portfolio/bgblur.jpg')");
+					$("#abt").animate({opacity: "1"}, "slow");
+				});
 			}
 
 
@@ -345,8 +360,10 @@
 				$(".box").css("visibility", "hidden");
 				$("#proj").css("visibility", "visible");
 				$("body").css("overflow-y", "scroll");
-				$("body").css("background-image", "url('portfolio/bgblur.jpg')");
-				$("#proj").animate({opacity: "1"}, "slow");
+				$("body").fadeIn("slow", function() {
+					$("body").css("background-image", "url('portfolio/bgblur.jpg')");
+					$("#proj").animate({opacity: "1"}, "slow");
+				});
 				display();
 			}
 
