@@ -30,6 +30,7 @@
         background-color: white;
         box-shadow: 3px 3px 15px;
         -webkit-animation: box 2s;
+        margin-bottom: 50px;
       }
 
       @-webkit-keyframes box {
@@ -96,11 +97,21 @@
       }
 
       .quotepic img {
+        position: absolute;
         height: 60px;
         width: auto;
-        margin-left: -50px;
+        margin-left: -35px;
         margin-top: -50px;
       }
+
+      .row button {
+        font-size: 150%;
+        background: black;
+        color: white;
+        padding: 10px;
+        width: 150px;
+      }
+
 
       .footer {
         position: fixed;
@@ -159,11 +170,12 @@
         <p id="by" class="by">-Aruna</p>
       </div>
 
-      <div class="container">
-        <a id="twit" target="_blank" onclick="postit()" title="Tweet Me!"><img id="twit" class="twitter" src="quote/twitter.png?raw=true" /></a>
-
-        <img src="quote/nub.png?raw=true" class="new-quote" title="Generate a new quote" onclick="clickMe()" />
-    </div>
+      <div class="row" style="text-align: center">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"><button onclick="postit()">Tweet me</button></div>
+        <div class="col-md-3"><button onclick="clickMe()">Another one!</button></div>
+        <div class="col-md-3"></div>
+      </div>
 
     <div class="footer">
       <div>
@@ -181,7 +193,7 @@
       var myFooterColors = ["#6b3582", "#656e77", "#492359", "#138C74", "#2777ad", "#577e99", "#9e615a", "#113851", "#0c5b4c", "#525456", "#263544", "#4c1610", "#3e1e44", "#a5807c", "#429b81", "#ba4a68", "#bf8787", "#709e94", "#6161a8", "#dd7a7a", "#824e4e", "#87482d", "#57875b", "#1ba0b5","#9c78bf", "#4f004f", "#cccc8e", "#e0b945", "#3a7267", "#106982", "#1B2530", "#72211a"];
 
       var randomize = 0;
-      var quote = "";
+      var said = "";
       var author = "";
       var box = document.getElementById("lel");
 
@@ -207,8 +219,8 @@
 
         $(document).ready(function(){
           $.get("https://quotes.herokuapp.com/libraries/math/random", function(result){
-            var said = result.substr(0, result.indexOf('--'));
-            var author = result.substr(result.indexOf('--'), result.length);
+            said = result.substr(0, result.indexOf('--'));
+            author = result.substr(result.indexOf('--'), result.length);
             $("#said").html(said);
             $("#by").html(author);
           });
@@ -231,7 +243,7 @@
 
 
       function postit(){
-        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(quote + " " + author));
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(said + " " + author));
       }
 
     </script>
